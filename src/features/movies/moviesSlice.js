@@ -13,7 +13,7 @@ const movieSlice = createSlice({
     initialState,
     reducers:{
         setMovies:(state,action)=>{ 
-            state.recomended = action.payload.recomended;
+            state.recomend = action.payload.recomend;
             state.newDisney = action.payload.newDisney;
             state.trending = action.payload.trending;
             state.orignal = action.payload.orignal;
@@ -22,7 +22,7 @@ const movieSlice = createSlice({
     },
 });
 export const {setMovies} = movieSlice.actions;
-export const selectRcommend = (state) => state.user.recomended;
+export const selectRcommend = (state) => state.user.recomend;
 export const selectTrending = (state) => state.user.trending;
 export const selectOriginals = (state) => state.user.orignal;
 export const selectNewDisney = (state) => state.user.newDisney;
