@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import firebase from "firebase";
 import ImgSlider from './ImgSlider';
 import NewDisney from './NewDisney.';
 import Orignals from './Orignals';
@@ -25,8 +24,9 @@ const Home = (props) => {
     useEffect(() => {
         db.collection('movie').onSnapshot((snapshot) => {
             snapshot.docs.map((doc) => {
+                console.log(doc.data().id)
                 switch (doc.data().type) {
-                    case "recomend":
+                    case "recommend":
                         recommends = [...recommends, { id: doc.id, ...doc.data() }]
                         break;
                     case "new":
@@ -41,7 +41,7 @@ const Home = (props) => {
                 }
             });
             dispatch(setMovies({
-                recomend: recommends,
+                recommend: recommends,
                 newDisney: newDisneys,
                 orignal: orignals,
                 trending: trendings,
